@@ -1,3 +1,4 @@
+```console
 getaddress() {
   if [ "$addr" == "" ]; then echo -ne "\nNote: Completing this will remember your address until you log out. "; else echo -ne "\nNote: Using previously entered address. "; fi; echo -e "To forget the address, press Ctrl+C and enter the command:\n\tunset addr\n";
   count=0; while ! (echo "$addr" | grep -E "^[A-Z2-7]{58}$" > /dev/null); do
@@ -25,3 +26,4 @@ duration=${duration:-2000000} &&\
 end=$((start + duration)) &&\
 dilution=$(echo "sqrt($end - $start)" | bc) &&\
 goal account renewpartkey -a $addr --roundLastValid $end --keyDilution $dilution
+```
